@@ -134,6 +134,7 @@ public final class Composer {
             loggingOptions.put("gelf-address", "udp://localhost:12201");
             loggingOptions.put("tag", serviceName);
             logging.put("options", loggingOptions);
+            service.put("logging",logging);
         }
 
         // Add ELK services

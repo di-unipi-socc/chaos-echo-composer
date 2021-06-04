@@ -4,6 +4,8 @@ services:
       TIMEOUT: 15000
       PICK_PERCENTAGE: 100
       FAIL_PERCENTAGE: 5
+    ports:
+      - "8080"
     depends_on: 
       - backend
   backend:
