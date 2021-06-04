@@ -1,0 +1,16 @@
+services:
+  frontend:
+    environment:
+      TIMEOUT: 15000
+      PICK_PERCENTAGE: 100
+      FAIL_PERCENTAGE: 5
+    depends_on: 
+      - backend
+  backend:
+    environment:
+      FAIL_PERCENTAGE: 10
+    deploy:
+      replicas: 5
+    depends_on: 
+      - database
+  database: 
