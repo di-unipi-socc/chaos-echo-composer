@@ -22,6 +22,6 @@ if [ ! -d "$TARGET_FOLDER" ]; then
     echo "done!"
 fi
 echo -n "Creating Docker compose deployment..."
-cp configs/logstash.conf $TARGET_FOLDER
+cp data/configs/logstash.conf $TARGET_FOLDER
 java -jar $JAR $INPUT_FILE "${TARGET_FOLDER}/docker-compose.yml"
 echo "done!"

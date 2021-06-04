@@ -23,7 +23,7 @@ public final class Composer {
 
     private static int DEFAULT_REPLICAS = 1;
 
-    private static String ELK_YAML = "configs/elk.yml";
+    private static String ELK_YAML = "data/configs/elk.yml";
 
     public static void main(String[] args) {
         // Parse arguments
