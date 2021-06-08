@@ -31,3 +31,4 @@ buildNumber.properties
 # Temp files
 #
 temp/
+*DS_Store
