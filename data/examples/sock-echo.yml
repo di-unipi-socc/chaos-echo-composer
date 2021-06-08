@@ -21,7 +21,7 @@ services:
       - carts
       - payment
       - shipping
-      - oders_db
+      - orders_db
   orders_db:
 
   # CATALOGUE
