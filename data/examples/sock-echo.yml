@@ -1,0 +1,57 @@
+# Application topology taken from Sock Shop (https://github.com/microservices-demo)
+
+services:
+  # FRONTEND
+  edge_router:
+    ports:
+      - "8080"
+    depends_on:
+      - frontend
+  frontend: 
+    depends_on: 
+      - orders
+      - catalogue
+      - users
+      - carts
+  
+  # ORDERS
+  orders:
+    depends_on:
+      - users
+      - carts
+      - payment
+      - shipping
+      - oders_db
+  orders_db:
+
+  # CATALOGUE
+  catalogue:
+    depends_on:
+      - catalogue_db
+  catalogue_db:
+
+  # USERS
+  users:
+    depends_on:
+      - users_db
+  users_db:
+
+  # CARTS
+  carts:
+    depends_on:
+      - carts_db
+  carts_db:
+
+  # PAYMENT:
+  payment:
+  
+  # SHIPPING
+  shipping:
+    depends_on:
+      - rabbit_mq
+  rabbit_mq:
+  queue_master:
+    ports:
+      - "8081"
+    depends_on:
+      - rabbit_mq
