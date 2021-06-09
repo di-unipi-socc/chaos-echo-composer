@@ -2,7 +2,7 @@
 
 services:
   # FRONTEND
-  edge_router:
+  edgeRouter:
     ports:
       - "8080"
     depends_on:
@@ -21,26 +21,26 @@ services:
       - carts
       - payment
       - shipping
-      - orders_db
-  orders_db:
+      - ordersDb
+  ordersDb:
 
   # CATALOGUE
   catalogue:
     depends_on:
-      - catalogue_db
-  catalogue_db:
+      - catalogueDb
+  catalogueDb:
 
   # USERS
   users:
     depends_on:
-      - users_db
-  users_db:
+      - usersDb
+  usersDb:
 
   # CARTS
   carts:
     depends_on:
-      - carts_db
-  carts_db:
+      - cartsDb
+  cartsDb:
 
   # PAYMENT:
   payment:
@@ -48,10 +48,10 @@ services:
   # SHIPPING
   shipping:
     depends_on:
-      - rabbit_mq
-  rabbit_mq:
-  queue_master:
+      - rabbitMq
+  rabbitMq:
+  queueMaster:
     ports:
       - "8081"
     depends_on:
-      - rabbit_mq
+      - rabbitMq
