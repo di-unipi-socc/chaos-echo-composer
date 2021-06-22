@@ -2,15 +2,16 @@ services:
   frontend:
     environment:
       TIMEOUT: 15000
-      PICK_PERCENTAGE: 100
-      FAIL_PERCENTAGE: 5
+      P_PICK: 100
+      P_FAIL: 5
+      P_CRASH: 25
     ports:
       - "8080"
     depends_on: 
       - backend
   backend:
     environment:
-      FAIL_PERCENTAGE: 10
+      P_FAIL: 10
     deploy:
       replicas: 5
     depends_on: 

@@ -18,8 +18,9 @@ public final class Composer {
     private static String DOCKER_IMAGE = "diunipisocc/chaosecho:1";
 
     private static int DEFAULT_TIMEOUT = 10000;
-    private static int DEFAULT_PICK_PERCENTAGE = 50;
-    private static int DEFAULT_FAIL_PERCENTAGE = 5;
+    private static int DEFAULT_P_PICK = 50;
+    private static int DEFAULT_P_FAIL = 5;
+    private static int DEFAULT_P_CRASH = 50;
 
     private static int DEFAULT_REPLICAS = 1;
 
@@ -81,14 +82,16 @@ public final class Composer {
                 service.put("environment", environment);
             }
 
-            // Set TIMEOUT, PICK_PERCENTAGE, and FAIL_PERCENTAGE (if not there)
+            // Set TIMEOUT, P_PICK, and P_FAIL (if not there)
             if (environment.get("TIMEOUT") == null)
                 environment.put("TIMEOUT", DEFAULT_TIMEOUT);
-            if (environment.get("PICK_PERCENTAGE") == null)
-                environment.put("PICK_PERCENTAGE", DEFAULT_PICK_PERCENTAGE);
-            if (environment.get("FAIL_PERCENTAGE") == null)
-                environment.put("FAIL_PERCENTAGE", DEFAULT_FAIL_PERCENTAGE);
-
+            if (environment.get("P_PICK") == null)
+                environment.put("P_PICK", DEFAULT_P_PICK);
+            if (environment.get("P_FAIL") == null)
+                environment.put("P_FAIL", DEFAULT_P_FAIL);
+            if (environment.get("P_CRASH") == null)
+                environment.put("P_CRASH", DEFAULT_P_CRASH);
+                
             // Set BACKEND_SERVICES
             List<String> dependsOn = (List<String>) service.get("depends_on");
             if (dependsOn != null) {
