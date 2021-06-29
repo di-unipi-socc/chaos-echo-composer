@@ -2,7 +2,7 @@ services:
   frontend:
     environment:
       TIMEOUT: 15000
-      P_PICK: 100
+      P_INVOKE: 100
       P_FAIL: 5
       P_CRASH: 25
     ports:

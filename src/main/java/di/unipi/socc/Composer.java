@@ -18,7 +18,7 @@ public final class Composer {
     private static String DOCKER_IMAGE = "diunipisocc/chaosecho:1";
 
     private static int DEFAULT_TIMEOUT = 10000;
-    private static int DEFAULT_P_PICK = 50;
+    private static int DEFAULT_P_INVOKE = 50;
     private static int DEFAULT_P_FAIL = 5;
     private static int DEFAULT_P_CRASH = 50;
 
@@ -82,11 +82,11 @@ public final class Composer {
                 service.put("environment", environment);
             }
 
-            // Set TIMEOUT, P_PICK, and P_FAIL (if not there)
+            // Set TIMEOUT, P_INVOKE, and P_FAIL (if not there)
             if (environment.get("TIMEOUT") == null)
                 environment.put("TIMEOUT", DEFAULT_TIMEOUT);
-            if (environment.get("P_PICK") == null)
-                environment.put("P_PICK", DEFAULT_P_PICK);
+            if (environment.get("P_INVOKE") == null)
+                environment.put("P_INVOKE", DEFAULT_P_INVOKE);
             if (environment.get("P_FAIL") == null)
                 environment.put("P_FAIL", DEFAULT_P_FAIL);
             if (environment.get("P_CRASH") == null)
