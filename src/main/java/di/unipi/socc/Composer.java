@@ -101,7 +101,7 @@ public final class Composer {
                     buffer.append(":");
                     buffer.append(dependsOn.get(i));
                 }
-                environment.put("BACKEND_SERVICES", buffer.toString());
+                environment.put("DEPENDS_ON", buffer.toString());
             }
 
             // Update depends_on
